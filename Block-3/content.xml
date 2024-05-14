@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Book Catalog XML -->
+<catalog>
+    <book id="bk001">
+        <title>The Art of Computer Programming</title>
+        <author>Donald E. Knuth</author>
+        <genre>Computer Science</genre>
+        <price>199.99</price>
+        <publish_date>1968-01-01</publish_date>
+        <description>
+            Comprehensive monograph written by Donald Knuth that covers many kinds of programming algorithms and their analysis.
+        </description>
+    </book>
+    <book id="bk002">
+        <title>Clean Code: A Handbook of Agile Software Craftsmanship</title>
+        <author>Robert C. Martin</author>
+        <genre>Software Engineering</genre>
+        <price>49.99</price>
+        <publish_date>2008-08-01</publish_date>
+        <description>
+            A guide to producing readable, understandable, and maintainable code by "Uncle Bob" Martin.
+        </description>
+    </book>
+    <book id="bk003">
+        <title>Design Patterns: Elements of Reusable Object-Oriented Software</title>
+        <author>Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides</author>
+        <genre>Software Engineering</genre>
+        <price>54.95</price>
+        <publish_date>1994-10-21</publish_date>
+        <description>
+            This seminal book provides a catalog of simple and succinct solutions to common design problems.
+        </description>
+    </book>
+    <book id="bk004">
+        <title>Introduction to the Theory of Computation</title>
+        <author>Michael Sipser</author>
+        <genre>Computer Science</genre>
+        <price>89.99</price>
+        <publish_date>1996-06-01</publish_date>
+        <description>
+            This book offers a clear and comprehensive introduction to the theory of computation.
+        </description>
+    </book>
+</catalog>
