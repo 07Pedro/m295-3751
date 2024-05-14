@@ -52,11 +52,3 @@ app.get('/now', (request, response) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
-
-
-//app.post('/brew-coffee', (req, res) => {
-//  res.status(418).send({
-//      status: 418,
-//      error: "I'm a teapot"
-//  });
-//});
