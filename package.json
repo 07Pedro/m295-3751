@@ -1,5 +1,14 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nanoid": "^2.1.11",
+    "swagger-ui-express": "^5.0.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.23.7"
+  },
+  "scripts": {
+    "swagger": "node ./Block-6/6-2_openAPI.js"
   }
 }
