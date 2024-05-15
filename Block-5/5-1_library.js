@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
-const books = [
+let books = [
     {
         "isbn": "978-3-16-148410-0",
         "title": "Das Leben des Galileo",
@@ -71,31 +71,67 @@ app.get('/books', (request, response) => {
 
 app.get('/books/:isbn', (request, response) => {
     const isbn = request.params.isbn;
-    console.log(isbn);
     const book = books.find(book => book.isbn === isbn);
     response.send(book);
 });
 
+const bookData = {
+    isbn: "978-0-553-21311-8",
+    title: "Moby Dick",
+    year: 1851,
+    author: "Herman Melville"
+}
+
 app.post('/books', (request, response) => {
-    let data = {
-            isbn: "978-0-553-21311-8",
-            title: "Moby Dick",
-            year: 1851,
-            author: "Herman Melville"
-        }
-    books.push(data);
+    books.push(bookData);
     response.send(books);
 });
 
 app.put('/books/:isbn', (request, response) => {
-    const theisbn = request.params.isbn;
-    const book = books.find((book) => book.isbn == theisbn);
-    let data = books.map((book) => {isbn:"978-0-14-028333-4"});
-    
-    console.log(data);
+    const isbn = request.params.isbn;
+    const thebook = books.find(book => book.isbn == isbn);
+    console.log(thebook);
+
+    var index = books.indexOf(thebook);
+    if (~index) {
+        books[index] = bookData;
+    }
     response.send(books);
 });
 
+app.delete('/books/:isbn', (request, response) => {
+    const isbn = request.params.isbn;
+    const thebook = books.find(book => book.isbn == isbn);
+    console.log(thebook);
+    const theindex = books.indexOf(thebook);
+    const bookToRemove = books.splice(theindex, 1);
+       
+    console.log(bookToRemove);
+    response.send(books);
+});
+
+const editbooks = (books, property, oldValue, newValue) => {
+    return books.map(item => {
+        var temp = Object.assign({}, item);
+        if (temp[property] === oldValue) {
+            temp[property] = newValue;
+        }
+        return temp;
+    });
+}
+
+app.patch('/books/:isbn', (request, response) => {
+    const isbn = request.params.isbn;
+    const thebook = books.find(book => book.isbn == isbn);
+    console.log(thebook);
+
+    books = editbooks(books, "isbn", "978-0-553-21311-7", "978-0-553-21311-8")
+    books = editbooks(books, "title", "Der Herr der Ringe", "Moby Dick")
+    books = editbooks(books, "year", "1954", "1851")
+    books = editbooks(books, "author", "J.R.R. Tolkien", "Herman Melville")
+    
+    response.send(books);
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
