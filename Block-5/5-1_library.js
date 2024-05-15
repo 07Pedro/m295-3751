@@ -70,14 +70,10 @@ app.get('/books', (request, response) => {
 });
 
 app.get('/books/:isbn', (request, response) => {
-    const theisbn = request.params.isbn;
-    console.log(theisbn);
-
-
-    const book = books.find((book) => book.isbn === theisbn);
-    
-    console.log(book);
-
+    const isbn = request.params.isbn;
+    console.log(isbn);
+    const book = books.find(book => book.isbn === isbn);
+    response.send(book);
 });
 
 app.post('/books', (request, response) => {
