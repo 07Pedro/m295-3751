@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "nanoid": "^2.1.11",
+    "sessionstorage": "^0.1.0",
     "swagger-ui-express": "^5.0.0",
     "uuid": "^9.0.1"
   },
